@@ -15,12 +15,7 @@ def export_dataset():
 
     data = load_breast_cancer()
 
-    # print(type(data))
-    # print(data.keys())
-    # print(type(data.DESCR))
-    # print(type(data.target_names))
-    # print(type(data.data))
-    # print(type(data.frame))
+   
 
     X = pd.DataFrame(data.data, columns=data.feature_names)
     y = pd.Series(data.target, name="target")
@@ -28,7 +23,7 @@ def export_dataset():
     df = pd.concat([X, y], axis=1)
 
     # df = data.frame
-    
+
     os.makedirs("data/raw", exist_ok=True)
     df.to_csv(RAW_DATA_PATH, index=False)
 
